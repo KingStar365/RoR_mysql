@@ -1,12 +1,52 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+  </div>
+  
+  <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+  <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+  
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= form_with url: session_path do |form| %>
+    <div>
+      <%= label_tag :email, "Email address", class: "block text-sm/6 font-medium text-gray-900" %>
+      <div class="mt-2">
+        <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", 
+        class: "block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 
+        placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-hidden focus:ring-blue-500 sm:text-sm",
+        placeholder: "Enter your email address", value: params[:email_address] %><br>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center justify-between">
+        <%= label_tag :password, "Password", class: "block text-sm/6 font-medium text-gray-900" %>
+        <div class="text-sm">
+          <%= link_to "Forgot password?", new_password_path , class: "font-semibold text-indigo-600 hover:text-indigo-500" %>
+        </div>
+      </div>
+      <div class="mt-2">
+        <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72,
+        class: "block w-full appearance-none rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-gray-900 
+        placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:outline-hidden focus:ring-blue-500 sm:text-sm" %><br>
+      </div>
+      <div>
+        <%= submit_tag "Sign in", color: "blue", variant: "solid", 
+        class: "group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold 
+        focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white 
+        hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600 w-full" %>
+      </div>
+    </div>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in"%>
-<% end %>
-<br>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20"></div>
+    <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
 
-<%= link_to "Sign up", new_signup_path %>
-<%= link_to "Forgot password?", new_password_path %>
+    <div class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+      <div class="aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+  <% end %>
+  <p class="mt-10 text-center text-sm/6 text-gray-500">
+    Not a member?
+    <%= link_to "Sign up", new_signup_path, class: "font-semibold text-indigo-600 hover:text-indigo-500" %>
+  </p>
+  </div>
+</div>
