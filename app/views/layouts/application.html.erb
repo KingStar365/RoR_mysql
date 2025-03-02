@@ -11,6 +11,13 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%# include via CDN for turbo support %>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.turbo.min.js"></script>
+
+    <%# include via CDN without turbo support %>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
   </head>
 
   <body>
@@ -42,9 +49,9 @@
           </div>
         </nav>
       </header>
-      <main>
-        <%= yield %>
-      </main>
     <% end %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
