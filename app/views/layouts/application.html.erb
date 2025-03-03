@@ -39,10 +39,11 @@
             </button>
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Product</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
+            <%= link_to "Home", dashboard_index_path,class:"text-sm/6 font-semibold text-gray-900"%>
+            <%= link_to "Product", posts_path,class:"text-sm/6 font-semibold text-gray-900"%>
+            <%= link_to "Pricing", new_pricing_path,class:"text-sm/6 font-semibold text-gray-900"%>
+            <%= link_to "Company", new_company_path, class:"text-sm/6 font-semibold text-gray-900"%>
+            <%= link_to "About Us", new_aboutu_path, class:"text-sm/6 font-semibold text-gray-900"%>
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <%= link_to "Log out", new_session_path, class: "-text-sm/6 font-semibold text-gray-900", method: :delete if authenticated?%> &rarr;
