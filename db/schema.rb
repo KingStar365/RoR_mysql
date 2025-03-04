@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_02_185457) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_04_002043) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -65,7 +65,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_02_185457) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sessions", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "ip_address"
     t.string "user_agent"

@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  allow_unauthenticated_access only: %i[ index ]
+  before_action only: %i[ index ]
 
   def index
   end
